@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const ourCommands = require('./commands/no-stdin')
+const ourCommands = require('./commands')
 const prompt = chalk.blue('\nprompt > ');
 
 process.stdout.write(prompt);
@@ -11,5 +11,4 @@ process.stdin.on('data', function (data) {
 
   if (ourCommands[cmd]) ourCommands[cmd](args);
   else process.stderr.write(chalk.red('command not found: ') + cmd);
-
 });
